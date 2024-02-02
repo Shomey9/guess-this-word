@@ -10,7 +10,12 @@ import { AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, Va
   styleUrl: './game-page.component.css',
 })
 export class GamePageComponent {
-  gameWord = 'placeholder';
+  gameWord = 'placeholder'
+    .split('')
+    .sort(() => {
+      return 0.5 - Math.random();
+    })
+    .join('');
 
   formGroup = this.formBuilder.group({
     userInput: [null, this.wordValidator(this.gameWord)],

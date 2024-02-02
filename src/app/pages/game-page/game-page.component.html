@@ -1,6 +1,8 @@
-<form>
+<form [formGroup]="formGroup">
     <p>
-      placeholder
+      {{ gameWord }}
     </p>
-    <input />
+    <input type="text" formControlName="userInput"/>
+    <p *ngIf="formGroup.controls.userInput.valid">You won!</p>
+    <p *ngIf="formGroup.controls.userInput.errors?.['incorrectAnswer'] && formGroup.controls.userInput.touched">You lose!</p>
 </form>

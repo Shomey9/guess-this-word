@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GamePageComponent } from './pages/game-page/game-page.component';
+import { GamePageComponent } from './modules/game-page/game-page.component';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 

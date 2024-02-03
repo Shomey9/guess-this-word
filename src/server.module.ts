@@ -1,10 +1,14 @@
 import { Module } from '@nestjs/common';
 import { ServerController } from './server.controller';
-import { ServerService } from './server.service';
+import { RandomWordService } from './server/src/endpoints/random-word/random-word.service';
+import { RandomWordController } from './server/src/endpoints/random-word/random-word.controller';
 
 @Module({
   imports: [],
-  controllers: [ServerController],
-  providers: [ServerService],
+  controllers: [
+    RandomWordController,
+    ServerController
+  ],
+  providers: [RandomWordService],
 })
 export class ServerModule {}

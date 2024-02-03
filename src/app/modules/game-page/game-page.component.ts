@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { RandomWordService } from 'apps/server/src/random-word/random-word.service';
 import { map, of } from 'rxjs';
 
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
+import { RandomWordService } from 'src/server/src/endpoints/random-word/random-word.service';
 
 export function wordValidator(randomWord$: Observable<string>): ValidatorFn {
   return (control: AbstractControl): Observable<ValidationErrors | null> => {
@@ -19,8 +19,6 @@ export function wordValidator(randomWord$: Observable<string>): ValidatorFn {
 
 @Component({
   selector: 'game-page',
-  standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './game-page.component.html',
   styleUrls: ['./game-page.component.css'],
 })

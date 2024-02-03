@@ -3,11 +3,16 @@ import { CommonModule } from '@angular/common';
 import { GamePageComponent } from './modules/game-page/game-page.component';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AppComponent, 
+    GamePageComponent
+  ],
   imports: [
-    CommonModule, GamePageComponent, AppComponent, ReactiveFormsModule
-  ]
+    CommonModule, ReactiveFormsModule, RouterModule
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

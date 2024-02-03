@@ -4,8 +4,6 @@ import { GamePageComponent } from './modules/game-page/game-page.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, GamePageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

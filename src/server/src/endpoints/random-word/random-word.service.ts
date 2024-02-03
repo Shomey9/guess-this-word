@@ -2,7 +2,7 @@ import { inject } from '@angular/core';
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { AxiosResponse } from 'axios';
-import { Observable, firstValueFrom, map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable()
 export class RandomWordService {

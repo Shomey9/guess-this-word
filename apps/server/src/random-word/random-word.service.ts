@@ -2,15 +2,16 @@ import { inject } from '@angular/core';
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { AxiosResponse } from 'axios';
-import { Observable, firstValueFrom } from 'rxjs';
+import { Observable, firstValueFrom, map } from 'rxjs';
 
 @Injectable()
 export class RandomWordService {
   private readonly httpService = inject(HttpService)
+  url = 'https://random-word-api.herokuapp.com/word';
 
-  async getRandomWord() {
-    const url = 'https://random-word-api.herokuapp.com/word';
-    const { data } = await firstValueFrom(this.httpService.get(url));
-    return data;
+  getRandomWord(): Observable<string> {
+    return this.httpService.get<string[]>(this.url).pipe(
+      map(({ data: [string] }: AxiosResponse<string[]>) => string)
+    )
   }
 }

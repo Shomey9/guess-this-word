@@ -1,13 +1,10 @@
-<div *ngIf="viewModel$ | async as vm">
-  <p>{{ vm.randomWord }}</p>
-  <form [formGroup]="formGroup">
-    <p>
-      {{ vm.scrambleWord }}
-    </p>
-    <input type="text" formControlName="userInput" />
-    <p *ngIf="formGroup.controls.userInput.valid">You won!</p>
-    <p *ngIf="formGroup.controls.userInput.errors?.['incorrectAnswer'] && formGroup.controls.userInput.touched">
-      You lose!
-    </p>
-  </form>
-</div>
+<form [formGroup]="formGroup">
+	<p>
+		{{ gameWord }}
+	</p>
+	<input type="text" formControlName="userInput" />
+	<p *ngIf="formGroup.controls.userInput.valid">You won!</p>
+	<p *ngIf="formGroup.controls.userInput.errors?.['incorrectAnswer'] && formGroup.controls.userInput.touched">
+		You lose!
+	</p>
+</form>

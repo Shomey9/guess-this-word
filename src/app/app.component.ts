@@ -7,8 +7,8 @@ import { GamePageComponent } from './modules/game-page/game-page.component';
   standalone: true,
   imports: [RouterOutlet, GamePageComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'guess-this-word';
+  title = 'word-guesser';
 }

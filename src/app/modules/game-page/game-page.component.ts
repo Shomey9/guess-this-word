@@ -20,7 +20,7 @@ export class GamePageComponent {
     .join('');
 
   formGroup = this.formBuilder.group({
-    userInput: [null, this.wordValidator(this.gameWord)],
+    userInput: [null, this.wordValidator('Ady'.toLowerCase())],
   });
 
   wordValidator(answer: string): ValidatorFn {

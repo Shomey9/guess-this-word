@@ -7,4 +7,7 @@
 	<p *ngIf="formGroup.controls.userInput.errors?.['incorrectAnswer'] && formGroup.controls.userInput.touched">
 		You lose!
 	</p>
+	<p>
+		{{ giveMeAWord | async }}
+	</p>
 </form>

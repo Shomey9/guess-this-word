@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { WordService } from '../../services/word.service';
 
 @Component({
   selector: 'game-page',
@@ -11,6 +12,7 @@ import { AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, Va
 })
 export class GamePageComponent {
   private readonly formBuilder = inject(FormBuilder);
+  private readonly wordService = inject(WordService);
 
   gameWord = 'Ady'.toLowerCase()
     .split('')
@@ -22,6 +24,8 @@ export class GamePageComponent {
   formGroup = this.formBuilder.group({
     userInput: [null, this.wordValidator('Ady'.toLowerCase())],
   });
+
+  giveMeAWord = this.wordService.getRandomWord()
 
   wordValidator(answer: string): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
